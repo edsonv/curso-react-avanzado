@@ -2,7 +2,7 @@ import React from 'react'
 // import { CategoListry } from './components/Category'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { ListOfCategories } from './components/ListOfCategories'
-import { ListOfPhotoCards } from './components/ListOfPhotoCards'
+import { ListOfPhotoCardsContainer } from './container/ListOfPhotoCardsContainer'
 import { Logo } from './components/Logo'
 
 export const App = () => {
@@ -12,7 +12,7 @@ export const App = () => {
       <Logo />
       {/* <Category /> */}
       <ListOfCategories />
-      <ListOfPhotoCards />
+      <ListOfPhotoCardsContainer categoryId={2} />
     </>
   )
 }
