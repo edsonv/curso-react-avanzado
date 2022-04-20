@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const withPhotos = gql`
   query getPhotos($categoryId: ID) {
@@ -10,4 +10,4 @@ export const withPhotos = gql`
       likes
     }
   }
-`
+`;
