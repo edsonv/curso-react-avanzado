@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { ImgWrapper, Image, Button, Article } from "./styles";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import PropTypes from "prop-types";
 
 const DEFAULT_IMAGE =
   "https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png";
@@ -29,7 +29,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/detail/${id}`}>
+          <a href={`/?detail=${id}`}>
             <ImgWrapper>
               <Image src={src} />
             </ImgWrapper>
