@@ -18,5 +18,5 @@ export const ToggleLikeMutation = ({ children }) => {
 };
 
 ToggleLikeMutation.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.func,
 };

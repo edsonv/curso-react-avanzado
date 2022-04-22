@@ -8,9 +8,8 @@ export const ListOfPhotoCardsContainer = ({ categoryId }) => {
   const { loading, error, data } = useQuery(withPhotos, {
     variables: { categoryId },
   });
-
   if (error) {
-    return <h2>Internal Serverl Error</h2>;
+    return <h2>Internal Server Error</h2>;
   }
 
   if (loading) {
@@ -21,5 +20,5 @@ export const ListOfPhotoCardsContainer = ({ categoryId }) => {
 };
 
 ListOfPhotoCardsContainer.propTypes = {
-  categoryId: PropTypes.number,
+  categoryId: PropTypes.any,
 };
