@@ -6,6 +6,7 @@ import { Logo } from "./components/Logo";
 // import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 import { Home } from "./pages/Home";
 import { Detail } from "./pages/Detail";
+import { NavBar } from "./components/NavBar";
 
 export const App = () => {
   // const urlParams = new window.URLSearchParams(window.location.search);
@@ -22,6 +23,7 @@ export const App = () => {
           </Route>
           <Route path="/detail/:detailId" element={<Detail />} />
         </Routes>
+        <NavBar />
       </BrowserRouter>
     </>
   );
