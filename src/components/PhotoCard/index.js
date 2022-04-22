@@ -31,11 +31,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Image src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
 
           <ToggleLikeMutation>
             {(toggleLike) => {
