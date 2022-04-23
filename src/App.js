@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AppContext } from "./context/AppContext";
 import PropTypes from "prop-types";
-import { GlobalStyle } from "./styles/GlobalStyles";
+
+import { NavBar } from "./components/NavBar";
 import { Logo } from "./components/Logo";
-// import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
+
 import { Home } from "./pages/Home";
 import { Detail } from "./pages/Detail";
 import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
-import { NavBar } from "./components/NavBar";
+
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 export const App = () => {
   // const urlParams = new window.URLSearchParams(window.location.search);
   // const detailId = urlParams.get("detail");
-  const isLogged = false;
+  const { isAuth } = useContext(AppContext);
 
   return (
     <>
@@ -28,11 +31,11 @@ export const App = () => {
           <Route path="/detail/:detailId" element={<Detail />} />
           <Route
             path="/favs"
-            element={isLogged ? <Favs /> : <NotRegisteredUser />}
+            element={isAuth ? <Favs /> : <NotRegisteredUser />}
           />
           <Route
             path="/user"
-            element={isLogged ? <User /> : <NotRegisteredUser />}
+            element={isAuth ? <User /> : <NotRegisteredUser />}
           />
         </Routes>
         <NavBar />
