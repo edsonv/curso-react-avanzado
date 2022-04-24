@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { UserForm } from "../components/UserForm";
 import { RegisterMutation } from "../container/RegisterMutation";
+import { LoginMutation } from "../container/LoginMutation";
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(AppContext);
@@ -29,7 +30,28 @@ export const NotRegisteredUser = () => {
           );
         }}
       </RegisterMutation>
-      <UserForm onSubmit={activateAuth} title="Iniciar sesión" />
+      <LoginMutation>
+        {(login, { data, loading, error }) => {
+          const onSubmit = ({ email, password }) => {
+            const input = { email, password };
+            const variables = { input };
+
+            login({ variables }).then(activateAuth);
+          };
+
+          const errorMsg =
+            error && "La constraseña es incorrecta o el usuario no existe";
+
+          return (
+            <UserForm
+              disabled={loading}
+              error={errorMsg}
+              onSubmit={onSubmit}
+              title="Iniciar sesión"
+            />
+          );
+        }}
+      </LoginMutation>
     </>
   );
 };
