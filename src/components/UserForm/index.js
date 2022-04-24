@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useInputValue } from "../../hooks/unseInputValue";
-import { Form, Input, Button, Title } from "./styles";
+import { Form, Input, Button, Title, Error } from "./styles";
 
-export const UserForm = ({ onSubmit, title }) => {
+export const UserForm = ({ onSubmit, title, error, disabled }) => {
   const email = useInputValue("");
   const password = useInputValue("");
 
@@ -15,12 +15,13 @@ export const UserForm = ({ onSubmit, title }) => {
   return (
     <>
       <Title>{title}</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form disabled={disabled} onSubmit={handleSubmit}>
         <Input
           type="email"
           name="email"
           id="email"
           placeholder="Email"
+          disabled={disabled}
           {...email}
         />
         <Input
@@ -28,10 +29,12 @@ export const UserForm = ({ onSubmit, title }) => {
           name="password"
           id="password"
           placeholder="Password"
+          disabled={disabled}
           {...password}
         />
-        <Button>{title}</Button>
+        <Button disabled={disabled}>{title}</Button>
       </Form>
+      {error && <Error>{error}</Error>}
     </>
   );
 };
@@ -39,4 +42,6 @@ export const UserForm = ({ onSubmit, title }) => {
 UserForm.propTypes = {
   onSubmit: PropTypes.any,
   title: PropTypes.string,
+  error: PropTypes.string,
+  disabled: PropTypes.any,
 };
