@@ -14,5 +14,5 @@ export const LoginMutation = ({ children }) => {
 };
 
 LoginMutation.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.func,
 };

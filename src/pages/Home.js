@@ -14,7 +14,3 @@ export const Home = () => {
     </>
   );
 };
-
-Home.propTypes = {
-  id: PropTypes.any,
-};

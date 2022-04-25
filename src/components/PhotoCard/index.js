@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreen } from "../../hooks/useNearScreen";
 
 import { ImgWrapper, Image, Article } from "./styles";
@@ -13,19 +12,8 @@ import { ToggleLikeMutation } from "../../container/ToggleLikeMutation";
 const DEFAULT_IMAGE =
   "https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png";
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
+export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
   const [show, element] = useNearScreen();
-  const key = `like-${id}`;
-  const [liked, setLiked] = useLocalStorage(key, false);
-
-  const setLocalStorage = (value) => {
-    try {
-      window.localStorage.setItem(key, value);
-      setLiked(value);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   return (
     <Article ref={element}>
@@ -40,13 +28,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
           <ToggleLikeMutation>
             {(toggleLike) => {
               const handleFavClick = () => {
-                !liked &&
-                  toggleLike({
-                    variables: {
-                      input: { id },
-                    },
-                  });
-                setLiked(!liked);
+                toggleLike({
+                  variables: {
+                    input: { id },
+                  },
+                });
               };
 
               return (
@@ -66,6 +52,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
 
 PhotoCard.propTypes = {
   id: PropTypes.string,
+  liked: PropTypes.any,
   likes: PropTypes.number,
   src: PropTypes.string,
 };

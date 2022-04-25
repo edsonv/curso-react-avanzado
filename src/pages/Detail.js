@@ -7,7 +7,3 @@ export const Detail = () => {
   const params = useParams();
   return <PhotoCardWithQuery id={params.detailId} />;
 };
-
-Detail.propTypes = {
-  detailId: PropTypes.any,
-};

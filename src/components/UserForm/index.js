@@ -40,8 +40,8 @@ export const UserForm = ({ onSubmit, title, error, disabled }) => {
 };
 
 UserForm.propTypes = {
-  onSubmit: PropTypes.any,
+  onSubmit: PropTypes.func,
   title: PropTypes.string,
-  error: PropTypes.string,
-  disabled: PropTypes.any,
+  error: PropTypes.any,
+  disabled: PropTypes.bool,
 };

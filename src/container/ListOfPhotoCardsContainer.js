@@ -15,10 +15,9 @@ export const ListOfPhotoCardsContainer = ({ categoryId }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
-
   return <ListOfPhotoCards data={data} />;
 };
 
 ListOfPhotoCardsContainer.propTypes = {
-  categoryId: PropTypes.any,
+  categoryId: PropTypes.string,
 };

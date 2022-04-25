@@ -14,5 +14,5 @@ export const RegisterMutation = ({ children }) => {
 };
 
 RegisterMutation.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.func,
 };

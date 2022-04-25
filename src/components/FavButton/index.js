@@ -14,7 +14,7 @@ export const FavButton = ({ liked, likes, onClick }) => {
 };
 
 FavButton.propTypes = {
-  liked: PropTypes.bool,
+  liked: PropTypes.any,
   likes: PropTypes.number,
   onClick: PropTypes.func,
 };

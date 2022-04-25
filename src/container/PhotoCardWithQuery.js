@@ -27,5 +27,5 @@ export const PhotoCardWithQuery = ({ id }) => {
 };
 
 PhotoCardWithQuery.propTypes = {
-  id: PropTypes.any,
+  id: PropTypes.string,
 };

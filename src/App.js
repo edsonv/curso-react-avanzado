@@ -43,7 +43,3 @@ export const App = () => {
     </>
   );
 };
-
-App.propTypes = {
-  id: PropTypes.number,
-};

@@ -18,6 +18,6 @@ export const CustomLink = ({ children, to, ...props }) => {
 };
 
 CustomLink.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.object,
   to: PropTypes.string,
 };
